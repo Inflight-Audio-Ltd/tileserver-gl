@@ -40,9 +40,6 @@
               {{#if serving_rendered}}
                 {{#if serving_data}}| {{/if}}<a href="/styles/{{@key}}.json{{&../key_query}}">TileJSON</a>
               {{/if}}
-              {{#if wmts_link}}
-                | <a href="{{&wmts_link}}">WMTS</a>
-              {{/if}}
               {{#if xyz_link}}
                 | <a href="#" onclick="return toggle_xyz('xyz_style_{{@key}}');">XYZ</a>
                   <input id="xyz_style_{{@key}}" type="text" value="{{&xyz_link}}" style="display:none;" />
@@ -81,9 +78,6 @@
             <p class="identifier">identifier: {{@key}}{{#if formatted_filesize}} | size: {{formatted_filesize}}{{/if}} | type: {{#is_vector}}vector{{/is_vector}}{{^is_vector}}raster{{/is_vector}} data</p>
             <p class="services">
               services: <a href="/data/{{@key}}.json{{&../key_query}}">TileJSON</a>
-              {{#if wmts_link}}
-                | <a href="{{&wmts_link}}">WMTS</a>
-              {{/if}}
               {{#if xyz_link}}
                 | <a href="#" onclick="return toggle_xyz('xyz_data_{{@key}}');">XYZ</a>
                   <input id="xyz_data_{{@key}}" type="text" value="{{&xyz_link}}" style="display:none;" />
@@ -106,7 +100,7 @@
   <footer>
     <a href="https://www.klokantech.com/" target="_blank"><img src="/images/klokantech.png" /></a>
     <p>
-      <a href="https://github.com/klokantech/tileserver-gl" target="_blank">Powered by TileServer GL ({{server_version}})</a> – <a href="https://www.klokantech.com/" target="_blank">an open-source project from Klokan Technologies GmbH.</a> <img src="https://t.klokantech.com/8073932/19" class="t" />
+      <a href="https://github.com/klokantech/tileserver-gl" target="_blank">Powered by TileServer GL ({{server_version}})</a> – <a href="https://www.klokantech.com/" target="_blank">an open-source project from Klokan Technologies GmbH.</a>
     </p>
   </footer>
 </body>
