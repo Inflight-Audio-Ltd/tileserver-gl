@@ -1,0 +1,20 @@
+FROM reg.ifddev.com/arm/swift-nodejs:alpine-latest
+
+ENV NODE_ENV="production"
+
+WORKDIR /root/
+
+RUN apk update && \
+	apk --no-cache add \
+	  make \
+	  python \
+	  g++ && \
+    npm --unsafe-perm install -g tileserver-gl-light && \
+	apk del \
+	  make \
+	  python \
+	  g++
+
+EXPOSE 80
+
+CMD ["node", "/usr/local/bin/tileserver-gl-light", "-p", "80", "/data/flight/tiles/2017-07-03_planet_z0_z14.mbtiles"] 
