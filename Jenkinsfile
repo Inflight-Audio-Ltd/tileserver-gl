@@ -54,8 +54,11 @@ pipeline {
 
     stage('Push image') {
       steps {
-        sh 'docker push ${PROD_IMAGE_ARM}'
+	    script {
+		  docker.withRegistry("https://reg.ifddev.com", "docker-registry-credential") {
+            sh 'docker push ${PROD_IMAGE_ARM}'
+		  }
+        }
       }
     }
-  }
 }
