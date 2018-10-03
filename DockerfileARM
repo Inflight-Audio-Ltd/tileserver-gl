@@ -17,4 +17,4 @@ RUN apk update && \
 
 EXPOSE 80
 
-CMD ["node", "/usr/local/bin/tileserver-gl-light", "-p", "80", "/data/flight/tiles/2017-07-03_planet_z0_z14.mbtiles"] 
+CMD ["node", "/usr/local/bin/tileserver-gl-light", "b", "localhost", "-p", "8081", "--mbtiles", "/data/flight/tiles/2017-07-03_planet_z0_z14.mbtiles"] 
