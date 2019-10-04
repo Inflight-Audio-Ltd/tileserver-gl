@@ -54,6 +54,7 @@ pipeline {
             sh 'docker push ${PROD_IMAGE_ARM}'
 		  }
         }
+	      sh "docker rmi -f ${TEST_IMAGE_ARM} ${PROD_IMAGE_ARM}"
       }
     }
   }
